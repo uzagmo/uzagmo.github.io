@@ -15,19 +15,38 @@
 
     display: inline-block;
     font-size: 3em;
-    margin-top: 0px;
+   
  }
 
  .names{
+    
     display: flex;
     flex-direction: column;
 
  }
 
  .title {
+    height: 100px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-right: 1000;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .course {
+   font-size: large;
+   color: white;
+   text-align: center;
+   font-family: 'Times New Roman', Times, serif;
+   font-weight: 100;
+ }
+
+ .picture {
+   display:block;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 20;
+   height: 100px;
+   width:100px;
+   
  }
  
