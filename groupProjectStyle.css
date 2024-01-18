@@ -1,0 +1,14 @@
+.mainHeader {
+    color: rgb(245, 224, 188); 
+    text-align: center;
+    font-size: 35px;
+}
+
+body {
+    background-color:rgb(102, 51, 51);
+ }
+
+.projList {
+    list-style-type: none;
+
+}
