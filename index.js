@@ -21,10 +21,18 @@ let createProject = (title, picture, desc) => {
 //FUNCTION TO DISPLAY THE IMAGES IN THE PROJECT ELEMENT
 let displayImages = (parent, imgList) => {
 
+    parent.classList.add("images");
+    //creating image out of string path
+    for (i = 0; i < imgList.length; i++) {
+        let image = document.createElement("img");
+        image.setAttribute('src', imgList[i]);
+        image.setAttribute('height', '350px');
+        image.setAttribute('width', '450px');
+        image.setAttribute('object-fit', 'contain');
+        parent.appendChild(image);
+    }
 
 }
-
-
 
 //get the body
 let body = document.querySelector("body");
@@ -43,8 +51,9 @@ list.classList.add("projList");
 body.appendChild(list);
 
 //DATA
-let title = ["CS2063 - Intro to Android Development", "SWE4103 - Software Quality and Project Management", "TME 3313 - Managing Engineering and IT Projects","CS2043 - Software Engineering I"];
-
+let title = ["SWE4103 - Software Quality and Project Management"] //"CS2063 - Intro to Android Development", "TME 3313 - Managing Engineering and IT Projects","CS2043 - Software Engineering I"];
+let ischesule = ["./images/iSchedule/loginpage.PNG", "./images/iSchedule/AdminLogin.PNG", "./images/iSchedule/Create-a-school.PNG", "./images/iSchedule/Teacher-on-calls.PNG",
+                "./images/iSchedule/Table.PNG", "./images/iSchedule/vp-homepage.PNG"];
 
 //CREATING AND APPENDING PROJECT ELEMENTS
 for(i = 0; i < title.length; i++ ){
@@ -52,7 +61,7 @@ for(i = 0; i < title.length; i++ ){
     list.appendChild(listitem);
 
     let listDiv = document.createElement("div");
-    listDiv = createProject(title[i], 1, 1);
+    listDiv = createProject(title[i], ischesule, 1);
     listitem.appendChild(listDiv);
 
 }

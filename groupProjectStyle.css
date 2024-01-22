@@ -12,3 +12,9 @@ body {
     list-style-type: none;
 
 }
+
+.images {
+    display: flex;
+    flex-direction: row;
+    gap: 50px
+}
