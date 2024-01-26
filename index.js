@@ -9,6 +9,11 @@ let createProject = (title, picture, desc) => {
 
     let projImg = document.createElement("div");
     displayImages(projImg, picture);
+
+    projImg.onscroll = () => {
+        rotateImage(projImg);
+        console.log("called");
+    }
     proj.appendChild(projImg)
 
     let projDesc = document.createElement("p");
@@ -16,6 +21,41 @@ let createProject = (title, picture, desc) => {
     proj.appendChild(projDesc);
 
     return proj;
+}
+
+//ROTATING PICTURES
+function getRotation(input) {
+    let totalWidth = window.innerWidth;
+    let rect = input.getBoundingClientRect();
+    let x = rect.left + rect.width / 2; //x is the position of the element
+    if (x > 0.45 * totalWidth && 0.55 * totalWidth > x) {
+        return ''
+    }
+    else if (x < 0.2 * totalWidth || totalWidth * 0.8 < x) {
+        return 'rotate3d(-.1, 1, 0, -90deg)'
+    }
+    else if (x < 0.45 * totalWidth) {
+        x = x - 0.2 * totalWidth;
+        let deg = x / (0.3 * totalWidth) * 100;
+        deg = (90 - deg);
+        return `rotate3d(0, 1, 0, ${deg}deg)`;
+    }
+    else {
+        //x position relative to the cut left edge
+        x = x - 0.8 * totalWidth;
+        let deg = x / (0.3 * totalWidth) * 100;
+        deg += 90;
+        return `rotate3d(0, 1, 0, ${deg}deg)`;
+    }
+
+}
+
+function rotateImage (parent) {
+
+    let children = parent.children;
+    for (let i = 0; i < children.length; i++){
+        children[i].style.transform = getRotation(children[i]);
+    }
 }
 
 //FUNCTION TO DISPLAY THE IMAGES IN THE PROJECT ELEMENT

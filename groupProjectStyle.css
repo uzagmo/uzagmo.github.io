@@ -16,5 +16,19 @@ body {
 .images {
     display: flex;
     flex-direction: row;
-    gap: 50px
+    gap: 50px;
+    overflow-x: scroll;
+    overflow: scroll;
+    overflow-y: hidden;
+
+
 }
+
+.images > *:nth-child(1) {
+    margin-left: 41%;
+}
+
+.images > *:nth-last-child(1) {
+    margin-right: 41%;
+}
+
